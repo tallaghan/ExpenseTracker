@@ -8,5 +8,15 @@ namespace ExpenseTracker.DTO
 {
     public class Expense
     {
+        public int Id { get; set; }
+
+        public DateTime ExpenseDate { get; set; }
+
+        public string Description { get; set; }
+
+        public int ExpenseGroupId { get; set; }
+
+        public decimal Amount { get; set; }
+
     }
 }

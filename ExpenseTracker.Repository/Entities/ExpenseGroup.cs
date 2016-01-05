@@ -17,7 +17,7 @@ namespace ExpenseTracker.Repository.Entities
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
         public ExpenseGroup()
         {
-            this.Expenses = new HashSet<Expens>();
+            this.Expenses = new HashSet<Expense>();
         }
     
         public int Id { get; set; }
@@ -26,6 +26,6 @@ namespace ExpenseTracker.Repository.Entities
         public bool IsActive { get; set; }
     
         [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<Expens> Expenses { get; set; }
+        public virtual ICollection<Expense> Expenses { get; set; }
     }
 }

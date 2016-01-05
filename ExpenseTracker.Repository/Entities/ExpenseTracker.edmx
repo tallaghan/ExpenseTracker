@@ -59,7 +59,7 @@
           <Property Name="IsActive" Type="Boolean" Nullable="false" />
           <NavigationProperty Name="Expenses" Relationship="Self.FK_Expenses_ExpenseGroups" FromRole="ExpenseGroups" ToRole="Expenses" />
         </EntityType>
-        <EntityType Name="Expens">
+        <EntityType Name="Expense">
           <Key>
             <PropertyRef Name="Id" />
           </Key>
@@ -72,7 +72,7 @@
         </EntityType>
         <Association Name="FK_Expenses_ExpenseGroups">
           <End Role="ExpenseGroups" Type="Self.ExpenseGroup" Multiplicity="1" />
-          <End Role="Expenses" Type="Self.Expens" Multiplicity="*" />
+          <End Role="Expenses" Type="ExpenseTrackerModel.Expense" Multiplicity="*" />
           <ReferentialConstraint>
             <Principal Role="ExpenseGroups">
               <PropertyRef Name="Id" />
@@ -84,7 +84,7 @@
         </Association>
         <EntityContainer Name="ExpenseTrackerEntities" annotation:LazyLoadingEnabled="true">
           <EntitySet Name="ExpenseGroups" EntityType="Self.ExpenseGroup" />
-          <EntitySet Name="Expenses" EntityType="Self.Expens" />
+          <EntitySet Name="Expenses" EntityType="ExpenseTrackerModel.Expense" />
           <AssociationSet Name="FK_Expenses_ExpenseGroups" Association="Self.FK_Expenses_ExpenseGroups">
             <End Role="ExpenseGroups" EntitySet="ExpenseGroups" />
             <End Role="Expenses" EntitySet="Expenses" />
@@ -107,7 +107,7 @@
             </EntityTypeMapping>
           </EntitySetMapping>
           <EntitySetMapping Name="Expenses">
-            <EntityTypeMapping TypeName="ExpenseTrackerModel.Expens">
+            <EntityTypeMapping TypeName="ExpenseTrackerModel.Expense">
               <MappingFragment StoreEntitySet="Expenses">
                 <ScalarProperty Name="Id" ColumnName="Id" />
                 <ScalarProperty Name="ExpenseGroupId" ColumnName="ExpenseGroupId" />

@@ -51,7 +51,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Entities\Expens.cs">
+    <Compile Include="Entities\Expense.cs">
       <DependentUpon>ExpenseTracker.tt</DependentUpon>
     </Compile>
     <Compile Include="Entities\ExpenseGroup.cs">
@@ -72,6 +72,8 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ExpenseTracker.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Factories\ExpenseGroupFactory.cs" />
+    <Compile Include="Factories\ExpenseFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -99,6 +101,12 @@
       <DependentUpon>ExpenseTracker.edmx</DependentUpon>
       <LastGenOutput>ExpenseTracker.cs</LastGenOutput>
     </Content>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ExpenseTracker.DTO\ExpenseTracker.DTO.csproj">
+      <Project>{fa2cbae3-fbcf-4965-956c-041f858bcb30}</Project>
+      <Name>ExpenseTracker.DTO</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

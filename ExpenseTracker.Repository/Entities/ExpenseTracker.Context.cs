@@ -26,6 +26,6 @@ namespace ExpenseTracker.Repository.Entities
         }
     
         public virtual DbSet<ExpenseGroup> ExpenseGroups { get; set; }
-        public virtual DbSet<Expens> Expenses { get; set; }
+        public virtual DbSet<Expense> Expenses { get; set; }
     }
 }
