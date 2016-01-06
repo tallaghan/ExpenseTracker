@@ -316,6 +316,16 @@
   <ItemGroup>
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ExpenseTracker.DTO\ExpenseTracker.DTO.csproj">
+      <Project>{fa2cbae3-fbcf-4965-956c-041f858bcb30}</Project>
+      <Name>ExpenseTracker.DTO</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ExpenseTracker.Repository\ExpenseTracker.Repository.csproj">
+      <Project>{e1f1b3f1-3237-42cd-9e12-a9e0e83525f4}</Project>
+      <Name>ExpenseTracker.Repository</Name>
+    </ProjectReference>
+  </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
     <VSToolsPath Condition="'$(VSToolsPath)' == ''">$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)</VSToolsPath>

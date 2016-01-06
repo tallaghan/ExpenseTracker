@@ -26,6 +26,19 @@ namespace ExpenseTracker.Repository.Factories
             };
         }
 
+
+        public ExpenseGroup CreateExpenseGroup(DTO.ExpenseGroup expenseGroup)
+        {
+
+            return new ExpenseGroup()
+            {
+                Description = expenseGroup.Description,
+                IsActive = true,
+                Title = expenseGroup.Title
+            };
+        }
+
+
     }
 
 }

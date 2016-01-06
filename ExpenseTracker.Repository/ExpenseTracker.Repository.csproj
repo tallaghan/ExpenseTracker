@@ -72,8 +72,11 @@
       <DesignTime>True</DesignTime>
       <DependentUpon>ExpenseTracker.edmx</DependentUpon>
     </Compile>
+    <Compile Include="Entities\ExpenseTrackerContext.cs" />
+    <Compile Include="ExpenseTrackerEFRepository.cs" />
     <Compile Include="Factories\ExpenseGroupFactory.cs" />
     <Compile Include="Factories\ExpenseFactory.cs" />
+    <Compile Include="IExpenseTrackerRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

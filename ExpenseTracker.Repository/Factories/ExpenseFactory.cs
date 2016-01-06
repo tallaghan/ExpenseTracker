@@ -27,6 +27,20 @@ namespace ExpenseTracker.Repository.Factories
             };
         }
 
+        public Expense CreateExpense(DTO.Expense expense)
+        {
+
+            return new Expense()
+            {
+                Amount = expense.Amount,
+                ExpenseDate = expense.ExpenseDate,
+                Description = expense.Description,
+                ExpenseGroupId = expense.ExpenseGroupId
+            };
+        }
+
+
+
     }
 
 }
