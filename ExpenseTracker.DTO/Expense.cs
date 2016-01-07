@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ExpenseTracker.DTO
 {
-    public class Expense
+    public class Expense : IDTOEntity
     {
         public int Id { get; set; }
 

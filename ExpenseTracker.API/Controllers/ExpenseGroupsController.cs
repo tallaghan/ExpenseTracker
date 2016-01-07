@@ -13,7 +13,7 @@ namespace ExpenseTracker.API.Controllers
     {
 
         IExpenseTrackerRepository<DTO.ExpenseGroup> _repository;
-        ExpenseGroupFactory _expenseGroupFactory = new ExpenseGroupFactory();
+        ExpenseGroupMapper _expenseGroupFactory = new ExpenseGroupMapper();
 
         public ExpenseGroupsController()
         {

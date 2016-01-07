@@ -73,9 +73,12 @@
       <DependentUpon>ExpenseTracker.edmx</DependentUpon>
     </Compile>
     <Compile Include="Entities\ExpenseTrackerContext.cs" />
+    <Compile Include="Entities\IEntity.cs" />
     <Compile Include="ExpenseTrackerEFRepository.cs" />
-    <Compile Include="Factories\ExpenseGroupFactory.cs" />
-    <Compile Include="Factories\ExpenseFactory.cs" />
+    <Compile Include="Factories\ExpenseGroupMapper.cs" />
+    <Compile Include="Factories\ExpenseMapper.cs" />
+    <Compile Include="Factories\ExpenseMapperFactory.cs" />
+    <Compile Include="Factories\IExpenseTrackerMapper.cs" />
     <Compile Include="IExpenseTrackerRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>

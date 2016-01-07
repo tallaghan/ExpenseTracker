@@ -4,19 +4,23 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ExpenseTracker.Repository.Entities;
+using ExpenseTracker.DTO;
+using System.Data.Entity.Core.Metadata.Edm;
 
 namespace ExpenseTracker.Repository.Factories
 {
-    public class ExpenseFactory
+    public class ExpenseMapper : IExpenseTrackerMapper
     {
 
-        public ExpenseFactory()
+        public ExpenseMapper()
         {
 
         }
 
-        public DTO.Expense CreateExpense(Expense expense)
+        public DTO.IDTOEntity CreateDTOFromEntity(Entities.IEntity entity)
         {
+
+            Entities.Expense expense = (Entities.Expense)entity;
 
             return new DTO.Expense()
             {
@@ -27,10 +31,12 @@ namespace ExpenseTracker.Repository.Factories
             };
         }
 
-        public Expense CreateExpense(DTO.Expense expense)
+        public Entities.IEntity CreateEntityFromDTO(DTO.IDTOEntity entity)
         {
 
-            return new Expense()
+            DTO.Expense expense = (DTO.Expense)entity;
+
+            return new Entities.Expense()
             {
                 Amount = expense.Amount,
                 ExpenseDate = expense.ExpenseDate,

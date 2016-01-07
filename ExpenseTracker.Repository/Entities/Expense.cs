@@ -12,7 +12,7 @@ namespace ExpenseTracker.Repository.Entities
     using System;
     using System.Collections.Generic;
     
-    public partial class Expense
+    public partial class Expense : IEntity
     {
         public int Id { get; set; }
         public int ExpenseGroupId { get; set; }

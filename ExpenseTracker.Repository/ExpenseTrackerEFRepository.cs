@@ -6,22 +6,36 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Linq.Expressions;
 using ExpenseTracker.Repository.Entities;
+using ExpenseTracker.DTO;
+using System.Data.Entity.Core.Metadata.Edm;
 
 namespace ExpenseTracker.Repository
 {
-    public class ExpenseTrackerEFRepository<T> : IExpenseTrackerRepository<T>
+    public class ExpenseTrackerEFRepository<T> : IExpenseTrackerRepository<T> where T : IDTOEntity
     {
         private ExpenseTrackerEntities db = new ExpenseTrackerEntities();
 
+        private IExpenseTrackerMapper _mapper;
+
         public ExpenseTrackerEFRepository()
         {
+            ExpenseMapperFactory<T> mapperFactory = new ExpenseMapperFactory<T>();
 
+            _mapper = mapperFactory.CreateInstance();
 
-        }
+    }
 
-        public void Add(T newEntity)
+        public void Add(T newItem) 
         {
-            throw new NotImplementedException();
+
+            //Entities.IEntity newEntity = _mapper.CreateEntityFromDTO(newItem);
+
+            //Type entityType = newEntity.GetType();
+
+            //db.Set<Entities.Expense>().Add(newEntity);
+
+            //db.SaveChanges();
+
         }
 
         public IQueryable<T> Find(Expression<Func<T, bool>> predicate)

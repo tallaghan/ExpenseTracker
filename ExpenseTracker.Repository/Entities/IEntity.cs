@@ -4,9 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace ExpenseTracker.DTO
+namespace ExpenseTracker.Repository.Entities
 {
-    public class ExpenseGroupStatus
+    public interface IEntity
     {
+        int Id { get; set; }
     }
 }
