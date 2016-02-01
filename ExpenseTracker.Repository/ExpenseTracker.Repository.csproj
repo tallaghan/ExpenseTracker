@@ -74,6 +74,7 @@
     </Compile>
     <Compile Include="Entities\ExpenseTrackerContext.cs" />
     <Compile Include="Entities\IEntity.cs" />
+    <Compile Include="ExpenseGroupsEFRepository.cs" />
     <Compile Include="ExpenseTrackerEFRepository.cs" />
     <Compile Include="Factories\ExpenseGroupMapper.cs" />
     <Compile Include="Factories\ExpenseMapper.cs" />
@@ -90,6 +91,7 @@
     </EntityDeploy>
     <None Include="Entities\ExpenseTracker.edmx.diagram">
       <DependentUpon>ExpenseTracker.edmx</DependentUpon>
+      <SubType>Designer</SubType>
     </None>
     <None Include="packages.config" />
   </ItemGroup>
@@ -109,6 +111,10 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ExpenseTracker.Common\ExpenseTracker.Common.csproj">
+      <Project>{4e5355f6-28f7-49fd-b957-b3e3150fe330}</Project>
+      <Name>ExpenseTracker.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ExpenseTracker.DTO\ExpenseTracker.DTO.csproj">
       <Project>{fa2cbae3-fbcf-4965-956c-041f858bcb30}</Project>
       <Name>ExpenseTracker.DTO</Name>

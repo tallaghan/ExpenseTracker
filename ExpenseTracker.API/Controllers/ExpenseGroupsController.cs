@@ -1,4 +1,5 @@
-﻿using ExpenseTracker.Repository;
+﻿using ExpenseTracker.Common;
+using ExpenseTracker.Repository;
 using ExpenseTracker.Repository.Factories;
 using System;
 using System.Collections.Generic;
@@ -12,14 +13,25 @@ namespace ExpenseTracker.API.Controllers
     public class ExpenseGroupsController : ApiController
     {
 
-        IExpenseTrackerRepository<DTO.ExpenseGroup> _repository;
+        IRepository<DTO.ExpenseGroup> _repository;
         ExpenseGroupMapper _expenseGroupFactory = new ExpenseGroupMapper();
 
-        public ExpenseGroupsController()
+        public ExpenseGroupsController(IRepository<DTO.ExpenseGroup> repository)
         {
-            _repository = new ExpenseTrackerEFRepository<DTO.ExpenseGroup>();
-
+            _repository = repository;
         }
 
+        public IHttpActionResult Get()
+        {
+            try
+            {
+                var expenseGroups = _repository.GetAll();
+
+                return Ok(expenseGroups.ToList());
+            } catch (Exception)
+            {
+                return InternalServerError();
+            }
+        }
     }
 }

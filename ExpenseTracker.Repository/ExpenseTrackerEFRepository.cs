@@ -8,10 +8,12 @@ using System.Linq.Expressions;
 using ExpenseTracker.Repository.Entities;
 using ExpenseTracker.DTO;
 using System.Data.Entity.Core.Metadata.Edm;
+using System.Reflection;
+using System.Data.Entity.Infrastructure;
 
 namespace ExpenseTracker.Repository
 {
-    public class ExpenseTrackerEFRepository<T> : IExpenseTrackerRepository<T> where T : IDTOEntity
+    public abstract class ExpenseTrackerEFRepository<T> : IExpenseTrackerRepository<T> where T : IDTOEntity
     {
         private ExpenseTrackerEntities db = new ExpenseTrackerEntities();
 
@@ -22,19 +24,19 @@ namespace ExpenseTracker.Repository
             ExpenseMapperFactory<T> mapperFactory = new ExpenseMapperFactory<T>();
 
             _mapper = mapperFactory.CreateInstance();
+        }
 
-    }
+        public abstract IQueryable<T> GetAll();
 
         public void Add(T newItem) 
         {
+            Entities.IEntity newEntity = _mapper.CreateEntityFromDTO(newItem);
 
-            //Entities.IEntity newEntity = _mapper.CreateEntityFromDTO(newItem);
+            Type entityType = newEntity.GetType();
 
-            //Type entityType = newEntity.GetType();
+            db.Set(entityType).Add(newEntity);
 
-            //db.Set<Entities.Expense>().Add(newEntity);
-
-            //db.SaveChanges();
+            db.SaveChanges();
 
         }
 

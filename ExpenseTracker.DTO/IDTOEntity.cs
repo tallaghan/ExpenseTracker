@@ -9,5 +9,6 @@ namespace ExpenseTracker.DTO
     public interface IDTOEntity
     {
         int Id { get; set; }
+        
     }
 }

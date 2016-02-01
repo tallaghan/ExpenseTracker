@@ -317,6 +317,10 @@
     <WCFMetadata Include="Service References\" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ExpenseTracker.Common\ExpenseTracker.Common.csproj">
+      <Project>{4e5355f6-28f7-49fd-b957-b3e3150fe330}</Project>
+      <Name>ExpenseTracker.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\ExpenseTracker.DTO\ExpenseTracker.DTO.csproj">
       <Project>{fa2cbae3-fbcf-4965-956c-041f858bcb30}</Project>
       <Name>ExpenseTracker.DTO</Name>

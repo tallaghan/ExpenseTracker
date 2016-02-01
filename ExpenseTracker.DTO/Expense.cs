@@ -18,5 +18,6 @@ namespace ExpenseTracker.DTO
 
         public decimal Amount { get; set; }
 
+
     }
 }
